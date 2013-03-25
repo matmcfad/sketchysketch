@@ -1,0 +1,1303 @@
+{
+ "kind": "discovery#rpcDescription",
+ "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/1JR0tGY16r4n6wQ92avke-Neu9M\"",
+ "discoveryVersion": "v1",
+ "id": "supersketchysketch:v4",
+ "name": "supersketchysketch",
+ "version": "v4",
+ "description": "This is an API",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rpc",
+ "rootUrl": "https://sketchycoursesketch.appspot.com/_ah/api/",
+ "rpcUrl": "https://sketchycoursesketch.appspot.com/_ah/api/rpc",
+ "rpcPath": "/_ah/api/rpc",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "schemas": {
+  "CollectionResponse_SRL_Course": {
+   "id": "CollectionResponse_SRL_Course",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Course"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_SRL_Feedback": {
+   "id": "CollectionResponse_SRL_Feedback",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Feedback"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_SRL_Submission": {
+   "id": "CollectionResponse_SRL_Submission",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Submission"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_SRL_User": {
+   "id": "CollectionResponse_SRL_User",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_User"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "SRL_Assignment": {
+   "id": "SRL_Assignment",
+   "type": "object",
+   "properties": {
+    "courseId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "name": {
+     "type": "string"
+    },
+    "srl_questionIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    }
+   }
+  },
+  "SRL_AssignmentCollection": {
+   "id": "SRL_AssignmentCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Assignment"
+     }
+    }
+   }
+  },
+  "SRL_Course": {
+   "id": "SRL_Course",
+   "type": "object",
+   "properties": {
+    "courseName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_assignmentIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "srl_userIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    }
+   }
+  },
+  "SRL_CourseCollection": {
+   "id": "SRL_CourseCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Course"
+     }
+    }
+   }
+  },
+  "SRL_Feedback": {
+   "id": "SRL_Feedback",
+   "type": "object",
+   "properties": {
+    "feedback": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_submissionId": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "SRL_Question": {
+   "id": "SRL_Question",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "question": {
+     "type": "string"
+    },
+    "srl_assignmentId": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "SRL_QuestionCollection": {
+   "id": "SRL_QuestionCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Question"
+     }
+    }
+   }
+  },
+  "SRL_Submission": {
+   "id": "SRL_Submission",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "questonId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "sketch": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "srl_questionId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_userId": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "SRL_User": {
+   "id": "SRL_User",
+   "type": "object",
+   "properties": {
+    "email": {
+     "type": "string"
+    },
+    "firstName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "lastName": {
+     "type": "string"
+    },
+    "password": {
+     "type": "string"
+    },
+    "srl_courseIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "userType": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "SRL_UserCollection": {
+   "id": "SRL_UserCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_User"
+     }
+    }
+   }
+  }
+ },
+ "methods": {
+  "supersketchysketch.courses.assigments.update": {
+   "id": "supersketchysketch.courses.assigments.update",
+   "parameters": {
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_Assignment"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "courseId"
+   ],
+   "returns": {
+    "$ref": "SRL_Assignment"
+   }
+  },
+  "supersketchysketch.courses.assignments.add": {
+   "id": "supersketchysketch.courses.assignments.add",
+   "parameters": {
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_Assignment"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "courseId"
+   ],
+   "returns": {
+    "$ref": "SRL_Assignment"
+   }
+  },
+  "supersketchysketch.courses.assignments.delete": {
+   "id": "supersketchysketch.courses.assignments.delete",
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId",
+    "assignmentId"
+   ],
+   "returns": {
+    "$ref": "SRL_Assignment"
+   }
+  },
+  "supersketchysketch.courses.assignments.get": {
+   "id": "supersketchysketch.courses.assignments.get",
+   "allowGet": true,
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId",
+    "assignmentId"
+   ],
+   "returns": {
+    "$ref": "SRL_Assignment"
+   }
+  },
+  "supersketchysketch.courses.assignments.list": {
+   "id": "supersketchysketch.courses.assignments.list",
+   "allowGet": true,
+   "parameters": {
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId"
+   ],
+   "returns": {
+    "$ref": "SRL_AssignmentCollection"
+   }
+  },
+  "supersketchysketch.courses.assignments.questions.delete": {
+   "id": "supersketchysketch.courses.assignments.questions.delete",
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId",
+    "assignmentId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Question"
+   }
+  },
+  "supersketchysketch.courses.assignments.questions.get": {
+   "id": "supersketchysketch.courses.assignments.questions.get",
+   "allowGet": true,
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId",
+    "assignmentId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Question"
+   }
+  },
+  "supersketchysketch.courses.assignments.questions.insert": {
+   "id": "supersketchysketch.courses.assignments.questions.insert",
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_Question"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "courseId",
+    "assignmentId"
+   ],
+   "returns": {
+    "$ref": "SRL_Question"
+   }
+  },
+  "supersketchysketch.courses.assignments.questions.list": {
+   "id": "supersketchysketch.courses.assignments.questions.list",
+   "allowGet": true,
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId",
+    "assignmentId"
+   ],
+   "returns": {
+    "$ref": "SRL_QuestionCollection"
+   }
+  },
+  "supersketchysketch.courses.assignments.questions.patch": {
+   "id": "supersketchysketch.courses.assignments.questions.patch",
+   "supportsPatch": true,
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "question": {
+     "type": "string"
+    },
+    "srl_assignmentId": {
+     "type": "string",
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId",
+    "assignmentId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Question"
+   }
+  },
+  "supersketchysketch.courses.assignments.questions.update": {
+   "id": "supersketchysketch.courses.assignments.questions.update",
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_Question"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "courseId",
+    "assignmentId"
+   ],
+   "returns": {
+    "$ref": "SRL_Question"
+   }
+  },
+  "supersketchysketch.courses.delete": {
+   "id": "supersketchysketch.courses.delete",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Course"
+   }
+  },
+  "supersketchysketch.courses.get": {
+   "id": "supersketchysketch.courses.get",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Course"
+   }
+  },
+  "supersketchysketch.courses.insert": {
+   "id": "supersketchysketch.courses.insert",
+   "parameters": {
+    "resource": {
+     "$ref": "SRL_Course"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "SRL_Course"
+   }
+  },
+  "supersketchysketch.courses.list": {
+   "id": "supersketchysketch.courses.list",
+   "allowGet": true,
+   "parameters": {
+    "cursor": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    }
+   },
+   "returns": {
+    "$ref": "CollectionResponse_SRL_Course"
+   }
+  },
+  "supersketchysketch.courses.patch": {
+   "id": "supersketchysketch.courses.patch",
+   "supportsPatch": true,
+   "parameters": {
+    "courseName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_assignmentIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "srl_userIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Course"
+   }
+  },
+  "supersketchysketch.courses.update": {
+   "id": "supersketchysketch.courses.update",
+   "parameters": {
+    "resource": {
+     "$ref": "SRL_Course"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "SRL_Course"
+   }
+  },
+  "supersketchysketch.courses.users.insert": {
+   "id": "supersketchysketch.courses.users.insert",
+   "parameters": {
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_User"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "courseId"
+   ],
+   "returns": {
+    "$ref": "SRL_User"
+   }
+  },
+  "supersketchysketch.courses.users.list": {
+   "id": "supersketchysketch.courses.users.list",
+   "allowGet": true,
+   "parameters": {
+    "courseId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "courseId"
+   ],
+   "returns": {
+    "$ref": "SRL_UserCollection"
+   }
+  },
+  "supersketchysketch.users.add": {
+   "id": "supersketchysketch.users.add",
+   "parameters": {
+    "resource": {
+     "$ref": "SRL_User"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "SRL_User"
+   }
+  },
+  "supersketchysketch.users.assignments.questions.submissions.delete": {
+   "id": "supersketchysketch.users.assignments.questions.submissions.delete",
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "questionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "assignmentId",
+    "questionId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Submission"
+   }
+  },
+  "supersketchysketch.users.assignments.questions.submissions.get": {
+   "id": "supersketchysketch.users.assignments.questions.submissions.get",
+   "allowGet": true,
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "questionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "assignmentId",
+    "questionId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Submission"
+   }
+  },
+  "supersketchysketch.users.assignments.questions.submissions.insert": {
+   "id": "supersketchysketch.users.assignments.questions.submissions.insert",
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "questionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_Submission"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "userid",
+    "assignmentId",
+    "questionId",
+    "userId"
+   ],
+   "returns": {
+    "$ref": "SRL_Submission"
+   }
+  },
+  "supersketchysketch.users.assignments.questions.submissions.list": {
+   "id": "supersketchysketch.users.assignments.questions.submissions.list",
+   "allowGet": true,
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "cursor": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "questionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "assignmentId",
+    "questionId"
+   ],
+   "returns": {
+    "$ref": "CollectionResponse_SRL_Submission"
+   }
+  },
+  "supersketchysketch.users.assignments.questions.submissions.patch": {
+   "id": "supersketchysketch.users.assignments.questions.submissions.patch",
+   "supportsPatch": true,
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "questionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "questonId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "sketch": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "srl_questionId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_userId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "assignmentId",
+    "questionId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Submission"
+   }
+  },
+  "supersketchysketch.users.assignments.questions.submissions.update": {
+   "id": "supersketchysketch.users.assignments.questions.submissions.update",
+   "parameters": {
+    "assignmentId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "questionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_Submission"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "userId",
+    "assignmentId",
+    "questionId"
+   ],
+   "returns": {
+    "$ref": "SRL_Submission"
+   }
+  },
+  "supersketchysketch.users.courses.insert": {
+   "id": "supersketchysketch.users.courses.insert",
+   "parameters": {
+    "resource": {
+     "$ref": "SRL_Course"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "userId"
+   ],
+   "returns": {
+    "$ref": "SRL_Course"
+   }
+  },
+  "supersketchysketch.users.courses.list": {
+   "id": "supersketchysketch.users.courses.list",
+   "allowGet": true,
+   "parameters": {
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId"
+   ],
+   "returns": {
+    "$ref": "SRL_CourseCollection"
+   }
+  },
+  "supersketchysketch.users.delete": {
+   "id": "supersketchysketch.users.delete",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_User"
+   }
+  },
+  "supersketchysketch.users.get": {
+   "id": "supersketchysketch.users.get",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_User"
+   }
+  },
+  "supersketchysketch.users.list": {
+   "id": "supersketchysketch.users.list",
+   "allowGet": true,
+   "parameters": {
+    "cursor": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    }
+   },
+   "returns": {
+    "$ref": "CollectionResponse_SRL_User"
+   }
+  },
+  "supersketchysketch.users.patch": {
+   "id": "supersketchysketch.users.patch",
+   "supportsPatch": true,
+   "parameters": {
+    "email": {
+     "type": "string"
+    },
+    "firstName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "lastName": {
+     "type": "string"
+    },
+    "password": {
+     "type": "string"
+    },
+    "srl_courseIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "userType": {
+     "type": "integer",
+     "format": "int32"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_User"
+   }
+  },
+  "supersketchysketch.users.questions.sumbissions.insert": {
+   "id": "supersketchysketch.users.questions.sumbissions.insert",
+   "parameters": {
+    "questionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "SRL_Submission"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "userId",
+    "quesionId",
+    "questionId"
+   ],
+   "returns": {
+    "$ref": "SRL_Submission"
+   }
+  },
+  "supersketchysketch.users.submissions.feedback.get": {
+   "id": "supersketchysketch.users.submissions.feedback.get",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "submissionId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Feedback"
+   }
+  },
+  "supersketchysketch.users.submissions.feedback.insert": {
+   "id": "supersketchysketch.users.submissions.feedback.insert",
+   "parameters": {
+    "resource": {
+     "$ref": "SRL_Feedback"
+    },
+    "submissionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "userId",
+    "submissionId"
+   ],
+   "returns": {
+    "$ref": "SRL_Feedback"
+   }
+  },
+  "supersketchysketch.users.submissions.feedback.list": {
+   "id": "supersketchysketch.users.submissions.feedback.list",
+   "allowGet": true,
+   "parameters": {
+    "cursor": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "submissionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "submissionId"
+   ],
+   "returns": {
+    "$ref": "CollectionResponse_SRL_Feedback"
+   }
+  },
+  "supersketchysketch.users.submissions.feedback.patch": {
+   "id": "supersketchysketch.users.submissions.feedback.patch",
+   "supportsPatch": true,
+   "parameters": {
+    "feedback": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_submissionId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "submissionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "submissionId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Feedback"
+   }
+  },
+  "supersketchysketch.users.submissions.feedback.remove": {
+   "id": "supersketchysketch.users.submissions.feedback.remove",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "submissionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "userId",
+    "submissionId",
+    "id"
+   ],
+   "returns": {
+    "$ref": "SRL_Feedback"
+   }
+  },
+  "supersketchysketch.users.submissions.feedback.update": {
+   "id": "supersketchysketch.users.submissions.feedback.update",
+   "parameters": {
+    "resource": {
+     "$ref": "SRL_Feedback"
+    },
+    "submissionId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "userId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "userId",
+    "submissionId"
+   ],
+   "returns": {
+    "$ref": "SRL_Feedback"
+   }
+  },
+  "supersketchysketch.users.update": {
+   "id": "supersketchysketch.users.update",
+   "parameters": {
+    "resource": {
+     "$ref": "SRL_User"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "SRL_User"
+   }
+  }
+ }
+}

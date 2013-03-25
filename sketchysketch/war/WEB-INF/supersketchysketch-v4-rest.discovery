@@ -1,0 +1,1424 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/1JR0tGY16r4n6wQ92avke-Neu9M\"",
+ "discoveryVersion": "v1",
+ "id": "supersketchysketch:v4",
+ "name": "supersketchysketch",
+ "version": "v4",
+ "description": "This is an API",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://sketchycoursesketch.appspot.com/_ah/api/supersketchysketch/v4/",
+ "basePath": "/_ah/api/supersketchysketch/v4/",
+ "rootUrl": "https://sketchycoursesketch.appspot.com/_ah/api/",
+ "servicePath": "supersketchysketch/v4/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "schemas": {
+  "CollectionResponse_SRL_Course": {
+   "id": "CollectionResponse_SRL_Course",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Course"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_SRL_Feedback": {
+   "id": "CollectionResponse_SRL_Feedback",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Feedback"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_SRL_Submission": {
+   "id": "CollectionResponse_SRL_Submission",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Submission"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_SRL_User": {
+   "id": "CollectionResponse_SRL_User",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_User"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "SRL_Assignment": {
+   "id": "SRL_Assignment",
+   "type": "object",
+   "properties": {
+    "courseId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "name": {
+     "type": "string"
+    },
+    "srl_questionIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    }
+   }
+  },
+  "SRL_AssignmentCollection": {
+   "id": "SRL_AssignmentCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Assignment"
+     }
+    }
+   }
+  },
+  "SRL_Course": {
+   "id": "SRL_Course",
+   "type": "object",
+   "properties": {
+    "courseName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_assignmentIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "srl_userIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    }
+   }
+  },
+  "SRL_CourseCollection": {
+   "id": "SRL_CourseCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Course"
+     }
+    }
+   }
+  },
+  "SRL_Feedback": {
+   "id": "SRL_Feedback",
+   "type": "object",
+   "properties": {
+    "feedback": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_submissionId": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "SRL_Question": {
+   "id": "SRL_Question",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "question": {
+     "type": "string"
+    },
+    "srl_assignmentId": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "SRL_QuestionCollection": {
+   "id": "SRL_QuestionCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_Question"
+     }
+    }
+   }
+  },
+  "SRL_Submission": {
+   "id": "SRL_Submission",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "questonId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "sketch": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "srl_questionId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "srl_userId": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "SRL_User": {
+   "id": "SRL_User",
+   "type": "object",
+   "properties": {
+    "email": {
+     "type": "string"
+    },
+    "firstName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "lastName": {
+     "type": "string"
+    },
+    "password": {
+     "type": "string"
+    },
+    "srl_courseIds": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "userType": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "SRL_UserCollection": {
+   "id": "SRL_UserCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "SRL_User"
+     }
+    }
+   }
+  }
+ },
+ "resources": {
+  "courses": {
+   "methods": {
+    "delete": {
+     "id": "supersketchysketch.courses.delete",
+     "path": "srl_course/{id}",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "SRL_Course"
+     }
+    },
+    "get": {
+     "id": "supersketchysketch.courses.get",
+     "path": "srl_course/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "SRL_Course"
+     }
+    },
+    "insert": {
+     "id": "supersketchysketch.courses.insert",
+     "path": "srl_course",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "SRL_Course"
+     },
+     "response": {
+      "$ref": "SRL_Course"
+     }
+    },
+    "list": {
+     "id": "supersketchysketch.courses.list",
+     "path": "srl_course",
+     "httpMethod": "GET",
+     "parameters": {
+      "cursor": {
+       "type": "string",
+       "location": "query"
+      },
+      "limit": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      }
+     },
+     "response": {
+      "$ref": "CollectionResponse_SRL_Course"
+     }
+    },
+    "patch": {
+     "id": "supersketchysketch.courses.patch",
+     "path": "srl_course",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "SRL_Course"
+     },
+     "response": {
+      "$ref": "SRL_Course"
+     }
+    },
+    "update": {
+     "id": "supersketchysketch.courses.update",
+     "path": "srl_course",
+     "httpMethod": "PUT",
+     "request": {
+      "$ref": "SRL_Course"
+     },
+     "response": {
+      "$ref": "SRL_Course"
+     }
+    }
+   },
+   "resources": {
+    "assigments": {
+     "methods": {
+      "update": {
+       "id": "supersketchysketch.courses.assigments.update",
+       "path": "srl_course/{courseId}/srl_assignment",
+       "httpMethod": "PUT",
+       "parameters": {
+        "courseId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "courseId"
+       ],
+       "request": {
+        "$ref": "SRL_Assignment"
+       },
+       "response": {
+        "$ref": "SRL_Assignment"
+       }
+      }
+     }
+    },
+    "assignments": {
+     "methods": {
+      "add": {
+       "id": "supersketchysketch.courses.assignments.add",
+       "path": "srl_course/{courseId}/srl_assignment",
+       "httpMethod": "POST",
+       "parameters": {
+        "courseId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "courseId"
+       ],
+       "request": {
+        "$ref": "SRL_Assignment"
+       },
+       "response": {
+        "$ref": "SRL_Assignment"
+       }
+      },
+      "delete": {
+       "id": "supersketchysketch.courses.assignments.delete",
+       "path": "srl_course/{courseId}/srl_assignment/{assignmentId}",
+       "httpMethod": "DELETE",
+       "parameters": {
+        "assignmentId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        },
+        "courseId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "courseId",
+        "assignmentId"
+       ],
+       "response": {
+        "$ref": "SRL_Assignment"
+       }
+      },
+      "get": {
+       "id": "supersketchysketch.courses.assignments.get",
+       "path": "srl_course/{courseId}/srl_assignment/{assignmentId}",
+       "httpMethod": "GET",
+       "parameters": {
+        "assignmentId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        },
+        "courseId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "courseId",
+        "assignmentId"
+       ],
+       "response": {
+        "$ref": "SRL_Assignment"
+       }
+      },
+      "list": {
+       "id": "supersketchysketch.courses.assignments.list",
+       "path": "srl_course/{courseId}/srl_assignment",
+       "httpMethod": "GET",
+       "parameters": {
+        "courseId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "courseId"
+       ],
+       "response": {
+        "$ref": "SRL_AssignmentCollection"
+       }
+      }
+     },
+     "resources": {
+      "questions": {
+       "methods": {
+        "delete": {
+         "id": "supersketchysketch.courses.assignments.questions.delete",
+         "path": "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question/{id}",
+         "httpMethod": "DELETE",
+         "parameters": {
+          "assignmentId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "courseId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "id": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "courseId",
+          "assignmentId",
+          "id"
+         ],
+         "response": {
+          "$ref": "SRL_Question"
+         }
+        },
+        "get": {
+         "id": "supersketchysketch.courses.assignments.questions.get",
+         "path": "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question/{id}",
+         "httpMethod": "GET",
+         "parameters": {
+          "assignmentId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "courseId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "id": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "courseId",
+          "assignmentId",
+          "id"
+         ],
+         "response": {
+          "$ref": "SRL_Question"
+         }
+        },
+        "insert": {
+         "id": "supersketchysketch.courses.assignments.questions.insert",
+         "path": "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question",
+         "httpMethod": "POST",
+         "parameters": {
+          "assignmentId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "courseId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "courseId",
+          "assignmentId"
+         ],
+         "request": {
+          "$ref": "SRL_Question"
+         },
+         "response": {
+          "$ref": "SRL_Question"
+         }
+        },
+        "list": {
+         "id": "supersketchysketch.courses.assignments.questions.list",
+         "path": "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question",
+         "httpMethod": "GET",
+         "parameters": {
+          "assignmentId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "courseId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "courseId",
+          "assignmentId"
+         ],
+         "response": {
+          "$ref": "SRL_QuestionCollection"
+         }
+        },
+        "patch": {
+         "id": "supersketchysketch.courses.assignments.questions.patch",
+         "path": "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question",
+         "httpMethod": "PATCH",
+         "parameters": {
+          "assignmentId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "courseId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "id": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "query"
+          }
+         },
+         "parameterOrder": [
+          "courseId",
+          "assignmentId",
+          "id"
+         ],
+         "request": {
+          "$ref": "SRL_Question"
+         },
+         "response": {
+          "$ref": "SRL_Question"
+         }
+        },
+        "update": {
+         "id": "supersketchysketch.courses.assignments.questions.update",
+         "path": "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question",
+         "httpMethod": "PUT",
+         "parameters": {
+          "assignmentId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "courseId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "courseId",
+          "assignmentId"
+         ],
+         "request": {
+          "$ref": "SRL_Question"
+         },
+         "response": {
+          "$ref": "SRL_Question"
+         }
+        }
+       }
+      }
+     }
+    },
+    "users": {
+     "methods": {
+      "insert": {
+       "id": "supersketchysketch.courses.users.insert",
+       "path": "srl_course/{courseId}/users",
+       "httpMethod": "POST",
+       "parameters": {
+        "courseId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "courseId"
+       ],
+       "request": {
+        "$ref": "SRL_User"
+       },
+       "response": {
+        "$ref": "SRL_User"
+       }
+      },
+      "list": {
+       "id": "supersketchysketch.courses.users.list",
+       "path": "srl_course/{courseId}/users",
+       "httpMethod": "GET",
+       "parameters": {
+        "courseId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "courseId"
+       ],
+       "response": {
+        "$ref": "SRL_UserCollection"
+       }
+      }
+     }
+    }
+   }
+  },
+  "users": {
+   "methods": {
+    "add": {
+     "id": "supersketchysketch.users.add",
+     "path": "srl_user",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "SRL_User"
+     },
+     "response": {
+      "$ref": "SRL_User"
+     }
+    },
+    "delete": {
+     "id": "supersketchysketch.users.delete",
+     "path": "srl_user/{id}",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "SRL_User"
+     }
+    },
+    "get": {
+     "id": "supersketchysketch.users.get",
+     "path": "srl_user/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "SRL_User"
+     }
+    },
+    "list": {
+     "id": "supersketchysketch.users.list",
+     "path": "srl_user",
+     "httpMethod": "GET",
+     "parameters": {
+      "cursor": {
+       "type": "string",
+       "location": "query"
+      },
+      "limit": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      }
+     },
+     "response": {
+      "$ref": "CollectionResponse_SRL_User"
+     }
+    },
+    "patch": {
+     "id": "supersketchysketch.users.patch",
+     "path": "srl_user",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "SRL_User"
+     },
+     "response": {
+      "$ref": "SRL_User"
+     }
+    },
+    "update": {
+     "id": "supersketchysketch.users.update",
+     "path": "srl_user",
+     "httpMethod": "PUT",
+     "request": {
+      "$ref": "SRL_User"
+     },
+     "response": {
+      "$ref": "SRL_User"
+     }
+    }
+   },
+   "resources": {
+    "assignments": {
+     "resources": {
+      "questions": {
+       "resources": {
+        "submissions": {
+         "methods": {
+          "delete": {
+           "id": "supersketchysketch.users.assignments.questions.submissions.delete",
+           "path": "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission/{id}",
+           "httpMethod": "DELETE",
+           "parameters": {
+            "assignmentId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "id": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "questionId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "userId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            }
+           },
+           "parameterOrder": [
+            "userId",
+            "assignmentId",
+            "questionId",
+            "id"
+           ],
+           "response": {
+            "$ref": "SRL_Submission"
+           }
+          },
+          "get": {
+           "id": "supersketchysketch.users.assignments.questions.submissions.get",
+           "path": "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission/{id}",
+           "httpMethod": "GET",
+           "parameters": {
+            "assignmentId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "id": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "questionId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "userId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            }
+           },
+           "parameterOrder": [
+            "userId",
+            "assignmentId",
+            "questionId",
+            "id"
+           ],
+           "response": {
+            "$ref": "SRL_Submission"
+           }
+          },
+          "insert": {
+           "id": "supersketchysketch.users.assignments.questions.submissions.insert",
+           "path": "srl_user/{userid}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission",
+           "httpMethod": "POST",
+           "parameters": {
+            "assignmentId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "questionId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "userId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "query"
+            }
+           },
+           "parameterOrder": [
+            "userid",
+            "assignmentId",
+            "questionId",
+            "userId"
+           ],
+           "request": {
+            "$ref": "SRL_Submission"
+           },
+           "response": {
+            "$ref": "SRL_Submission"
+           }
+          },
+          "list": {
+           "id": "supersketchysketch.users.assignments.questions.submissions.list",
+           "path": "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission",
+           "httpMethod": "GET",
+           "parameters": {
+            "assignmentId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "cursor": {
+             "type": "string",
+             "location": "query"
+            },
+            "limit": {
+             "type": "integer",
+             "format": "int32",
+             "location": "query"
+            },
+            "questionId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "userId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            }
+           },
+           "parameterOrder": [
+            "userId",
+            "assignmentId",
+            "questionId"
+           ],
+           "response": {
+            "$ref": "CollectionResponse_SRL_Submission"
+           }
+          },
+          "patch": {
+           "id": "supersketchysketch.users.assignments.questions.submissions.patch",
+           "path": "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission",
+           "httpMethod": "PATCH",
+           "parameters": {
+            "assignmentId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "id": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "query"
+            },
+            "questionId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "userId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            }
+           },
+           "parameterOrder": [
+            "userId",
+            "assignmentId",
+            "questionId",
+            "id"
+           ],
+           "request": {
+            "$ref": "SRL_Submission"
+           },
+           "response": {
+            "$ref": "SRL_Submission"
+           }
+          },
+          "update": {
+           "id": "supersketchysketch.users.assignments.questions.submissions.update",
+           "path": "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission",
+           "httpMethod": "PUT",
+           "parameters": {
+            "assignmentId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "questionId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            },
+            "userId": {
+             "type": "string",
+             "required": true,
+             "format": "int64",
+             "location": "path"
+            }
+           },
+           "parameterOrder": [
+            "userId",
+            "assignmentId",
+            "questionId"
+           ],
+           "request": {
+            "$ref": "SRL_Submission"
+           },
+           "response": {
+            "$ref": "SRL_Submission"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "courses": {
+     "methods": {
+      "insert": {
+       "id": "supersketchysketch.users.courses.insert",
+       "path": "srl_user/{userId}/srl_course",
+       "httpMethod": "POST",
+       "parameters": {
+        "userId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "userId"
+       ],
+       "request": {
+        "$ref": "SRL_Course"
+       },
+       "response": {
+        "$ref": "SRL_Course"
+       }
+      },
+      "list": {
+       "id": "supersketchysketch.users.courses.list",
+       "path": "srl_user/{userId}/srl_course",
+       "httpMethod": "GET",
+       "parameters": {
+        "userId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "userId"
+       ],
+       "response": {
+        "$ref": "SRL_CourseCollection"
+       }
+      }
+     }
+    },
+    "questions": {
+     "resources": {
+      "sumbissions": {
+       "methods": {
+        "insert": {
+         "id": "supersketchysketch.users.questions.sumbissions.insert",
+         "path": "srl_user/{userId}/srl_question/{quesionId}/srl_submission",
+         "httpMethod": "POST",
+         "parameters": {
+          "questionId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "query"
+          },
+          "userId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "userId",
+          "quesionId",
+          "questionId"
+         ],
+         "request": {
+          "$ref": "SRL_Submission"
+         },
+         "response": {
+          "$ref": "SRL_Submission"
+         }
+        }
+       }
+      }
+     }
+    },
+    "submissions": {
+     "resources": {
+      "feedback": {
+       "methods": {
+        "get": {
+         "id": "supersketchysketch.users.submissions.feedback.get",
+         "path": "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback/{id}",
+         "httpMethod": "GET",
+         "parameters": {
+          "id": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "userId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "userId",
+          "submissionId",
+          "id"
+         ],
+         "response": {
+          "$ref": "SRL_Feedback"
+         }
+        },
+        "insert": {
+         "id": "supersketchysketch.users.submissions.feedback.insert",
+         "path": "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+         "httpMethod": "POST",
+         "parameters": {
+          "submissionId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "userId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "userId",
+          "submissionId"
+         ],
+         "request": {
+          "$ref": "SRL_Feedback"
+         },
+         "response": {
+          "$ref": "SRL_Feedback"
+         }
+        },
+        "list": {
+         "id": "supersketchysketch.users.submissions.feedback.list",
+         "path": "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+         "httpMethod": "GET",
+         "parameters": {
+          "cursor": {
+           "type": "string",
+           "location": "query"
+          },
+          "limit": {
+           "type": "integer",
+           "format": "int32",
+           "location": "query"
+          },
+          "submissionId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "userId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "userId",
+          "submissionId"
+         ],
+         "response": {
+          "$ref": "CollectionResponse_SRL_Feedback"
+         }
+        },
+        "patch": {
+         "id": "supersketchysketch.users.submissions.feedback.patch",
+         "path": "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+         "httpMethod": "PATCH",
+         "parameters": {
+          "id": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "query"
+          },
+          "submissionId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "userId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "userId",
+          "submissionId",
+          "id"
+         ],
+         "request": {
+          "$ref": "SRL_Feedback"
+         },
+         "response": {
+          "$ref": "SRL_Feedback"
+         }
+        },
+        "remove": {
+         "id": "supersketchysketch.users.submissions.feedback.remove",
+         "path": "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+         "httpMethod": "DELETE",
+         "parameters": {
+          "id": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "query"
+          },
+          "submissionId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "userId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "userId",
+          "submissionId",
+          "id"
+         ],
+         "response": {
+          "$ref": "SRL_Feedback"
+         }
+        },
+        "update": {
+         "id": "supersketchysketch.users.submissions.feedback.update",
+         "path": "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+         "httpMethod": "PUT",
+         "parameters": {
+          "submissionId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          },
+          "userId": {
+           "type": "string",
+           "required": true,
+           "format": "int64",
+           "location": "path"
+          }
+         },
+         "parameterOrder": [
+          "userId",
+          "submissionId"
+         ],
+         "request": {
+          "$ref": "SRL_Feedback"
+         },
+         "response": {
+          "$ref": "SRL_Feedback"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,1331 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://sketchycoursesketch.appspot.com/_ah/api",
+  "name" : "supersketchysketch",
+  "version" : "v4",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "http://sketchycoursesketch.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "supersketchysketch.users.assignments.questions.submissions.get" : {
+      "path" : "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_SubmissionEndpoint.getSRL_Submission",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "questionId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.assignments.questions.submissions.list" : {
+      "path" : "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission/",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_SubmissionEndpoint.listSRL_Submission",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "questionId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.assignments.questions.submissions.update" : {
+      "path" : "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_SubmissionEndpoint.updateSRL_Submission",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "questionId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.assignments.questions.submissions.insert" : {
+      "path" : "srl_user/{userid}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_SubmissionEndpoint.insertSRL_Submission",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "questionId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.assignments.questions.submissions.delete" : {
+      "path" : "srl_user/{userId}/srl_assignment/{assignmentId}/srl_question/{questionId}/srl_submission/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_SubmissionEndpoint.removeSRL_Submission",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "questionId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.submissions.feedback.insert" : {
+      "path" : "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_FeedbackEndpoint.insertSRL_Feedback",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "submissionId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.submissions.feedback.get" : {
+      "path" : "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_FeedbackEndpoint.getSRL_Feedback",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.submissions.feedback.list" : {
+      "path" : "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_FeedbackEndpoint.listSRL_Feedback",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "submissionId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.submissions.feedback.remove" : {
+      "path" : "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_FeedbackEndpoint.removeSRL_Feedback",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "submissionId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.submissions.feedback.update" : {
+      "path" : "srl_user/{userId}/srl_submission/{submissionId}/srl_feedback",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_FeedbackEndpoint.updateSRL_Feedback",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "submissionId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.list" : {
+      "path" : "srl_course",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_CourseEndpoint.listSRL_Course",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.update" : {
+      "path" : "srl_course",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_CourseEndpoint.updateSRL_Course",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.users.list" : {
+      "path" : "srl_course/{courseId}/users",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_CourseEndpoint.listSRL_CourseSRL_Users",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.delete" : {
+      "path" : "srl_course/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_CourseEndpoint.removeSRL_Course",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.get" : {
+      "path" : "srl_course/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_CourseEndpoint.getSRL_Course",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.users.insert" : {
+      "path" : "srl_course/{courseId}/users",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_CourseEndpoint.insertSRL_User",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.insert" : {
+      "path" : "srl_course",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_CourseEndpoint.insertSRL_Course",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.list" : {
+      "path" : "srl_course/{courseId}/srl_assignment",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_AssignmentEndpoint.listSRL_Assignments",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.get" : {
+      "path" : "srl_course/{courseId}/srl_assignment/{assignmentId}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_AssignmentEndpoint.getSRL_Assignment",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.add" : {
+      "path" : "srl_course/{courseId}/srl_assignment",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_AssignmentEndpoint.insertSRL_Assignment",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assigments.update" : {
+      "path" : "srl_course/{courseId}/srl_assignment",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_AssignmentEndpoint.updateSRL_Assignment",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.delete" : {
+      "path" : "srl_course/{courseId}/srl_assignment/{assignmentId}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_AssignmentEndpoint.removeSRL_Assignment",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.get" : {
+      "path" : "srl_user/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.getSRL_User",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.delete" : {
+      "path" : "srl_user/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.removeSRL_User",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.courses.list" : {
+      "path" : "srl_user/{userId}/srl_course/",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.listUserCourses",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.list" : {
+      "path" : "srl_user",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.listSRL_User",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.add" : {
+      "path" : "srl_user",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.insertSRL_User",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.questions.sumbissions.insert" : {
+      "path" : "srl_user/{userId}/srl_question/{quesionId}/srl_submission",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.insertSubmission",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "questionId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.courses.insert" : {
+      "path" : "srl_user/{userId}/srl_course",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.insertCourse",
+      "request" : {
+        "parameters" : {
+          "userId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.users.update" : {
+      "path" : "srl_user",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_UserEndpoint.updateSRL_User",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.questions.list" : {
+      "path" : "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question/",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_QuestionEndpoint.listSRL_Question",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.questions.insert" : {
+      "path" : "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_QuestionEndpoint.insertSRL_Question",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.questions.delete" : {
+      "path" : "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_QuestionEndpoint.removeSRL_Question",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.questions.get" : {
+      "path" : "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_QuestionEndpoint.getSRL_Question",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "supersketchysketch.courses.assignments.questions.update" : {
+      "path" : "srl_course/{courseId}/srl_assignment/{assignmentId}/srl_question",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "SRL_QuestionEndpoint.updateSRL_Question",
+      "request" : {
+        "parameters" : {
+          "courseId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "assignmentId" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "SRL_Submission" : {
+        "id" : "SRL_Submission",
+        "type" : "object",
+        "properties" : {
+          "srl_questionId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "srl_userId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "sketch" : {
+            "type" : "integer"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "questonId" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "CollectionResponse_SRL_Submission" : {
+        "id" : "CollectionResponse_SRL_Submission",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_Submission"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SRL_Feedback" : {
+        "id" : "SRL_Feedback",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "feedback" : {
+            "type" : "string"
+          },
+          "srl_submissionId" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "CollectionResponse_SRL_Feedback" : {
+        "id" : "CollectionResponse_SRL_Feedback",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_Feedback"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_SRL_Course" : {
+        "id" : "CollectionResponse_SRL_Course",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_Course"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SRL_Course" : {
+        "id" : "SRL_Course",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "courseName" : {
+            "type" : "string"
+          },
+          "srl_assignmentIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "int64"
+            }
+          },
+          "srl_userIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "int64"
+            }
+          }
+        }
+      },
+      "SRL_User" : {
+        "id" : "SRL_User",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "userType" : {
+            "type" : "integer"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "srl_courseIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "int64"
+            }
+          }
+        }
+      },
+      "SRL_UserCollection" : {
+        "id" : "SRL_UserCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_User"
+            }
+          }
+        }
+      },
+      "SRL_Assignment" : {
+        "id" : "SRL_Assignment",
+        "type" : "object",
+        "properties" : {
+          "srl_questionIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "int64"
+            }
+          },
+          "courseId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "SRL_AssignmentCollection" : {
+        "id" : "SRL_AssignmentCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_Assignment"
+            }
+          }
+        }
+      },
+      "SRL_CourseCollection" : {
+        "id" : "SRL_CourseCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_Course"
+            }
+          }
+        }
+      },
+      "CollectionResponse_SRL_User" : {
+        "id" : "CollectionResponse_SRL_User",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_User"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SRL_Question" : {
+        "id" : "SRL_Question",
+        "type" : "object",
+        "properties" : {
+          "question" : {
+            "type" : "string"
+          },
+          "srl_assignmentId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "SRL_QuestionCollection" : {
+        "id" : "SRL_QuestionCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "SRL_Question"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "SRL_SubmissionEndpoint.getSRL_Submission" : {
+        "response" : {
+          "$ref" : "SRL_Submission"
+        }
+      },
+      "SRL_SubmissionEndpoint.listSRL_Submission" : {
+        "response" : {
+          "$ref" : "CollectionResponse_SRL_Submission"
+        }
+      },
+      "SRL_SubmissionEndpoint.updateSRL_Submission" : {
+        "request" : {
+          "$ref" : "SRL_Submission"
+        },
+        "response" : {
+          "$ref" : "SRL_Submission"
+        }
+      },
+      "SRL_SubmissionEndpoint.insertSRL_Submission" : {
+        "request" : {
+          "$ref" : "SRL_Submission"
+        },
+        "response" : {
+          "$ref" : "SRL_Submission"
+        }
+      },
+      "SRL_SubmissionEndpoint.removeSRL_Submission" : {
+        "response" : {
+          "$ref" : "SRL_Submission"
+        }
+      },
+      "SRL_FeedbackEndpoint.insertSRL_Feedback" : {
+        "request" : {
+          "$ref" : "SRL_Feedback"
+        },
+        "response" : {
+          "$ref" : "SRL_Feedback"
+        }
+      },
+      "SRL_FeedbackEndpoint.getSRL_Feedback" : {
+        "response" : {
+          "$ref" : "SRL_Feedback"
+        }
+      },
+      "SRL_FeedbackEndpoint.listSRL_Feedback" : {
+        "response" : {
+          "$ref" : "CollectionResponse_SRL_Feedback"
+        }
+      },
+      "SRL_FeedbackEndpoint.removeSRL_Feedback" : {
+        "response" : {
+          "$ref" : "SRL_Feedback"
+        }
+      },
+      "SRL_FeedbackEndpoint.updateSRL_Feedback" : {
+        "request" : {
+          "$ref" : "SRL_Feedback"
+        },
+        "response" : {
+          "$ref" : "SRL_Feedback"
+        }
+      },
+      "SRL_CourseEndpoint.listSRL_Course" : {
+        "response" : {
+          "$ref" : "CollectionResponse_SRL_Course"
+        }
+      },
+      "SRL_CourseEndpoint.updateSRL_Course" : {
+        "request" : {
+          "$ref" : "SRL_Course"
+        },
+        "response" : {
+          "$ref" : "SRL_Course"
+        }
+      },
+      "SRL_CourseEndpoint.listSRL_CourseSRL_Users" : {
+        "response" : {
+          "$ref" : "SRL_UserCollection"
+        }
+      },
+      "SRL_CourseEndpoint.removeSRL_Course" : {
+        "response" : {
+          "$ref" : "SRL_Course"
+        }
+      },
+      "SRL_CourseEndpoint.getSRL_Course" : {
+        "response" : {
+          "$ref" : "SRL_Course"
+        }
+      },
+      "SRL_CourseEndpoint.insertSRL_User" : {
+        "request" : {
+          "$ref" : "SRL_User"
+        },
+        "response" : {
+          "$ref" : "SRL_User"
+        }
+      },
+      "SRL_CourseEndpoint.insertSRL_Course" : {
+        "request" : {
+          "$ref" : "SRL_Course"
+        },
+        "response" : {
+          "$ref" : "SRL_Course"
+        }
+      },
+      "SRL_AssignmentEndpoint.listSRL_Assignments" : {
+        "response" : {
+          "$ref" : "SRL_AssignmentCollection"
+        }
+      },
+      "SRL_AssignmentEndpoint.getSRL_Assignment" : {
+        "response" : {
+          "$ref" : "SRL_Assignment"
+        }
+      },
+      "SRL_AssignmentEndpoint.insertSRL_Assignment" : {
+        "request" : {
+          "$ref" : "SRL_Assignment"
+        },
+        "response" : {
+          "$ref" : "SRL_Assignment"
+        }
+      },
+      "SRL_AssignmentEndpoint.updateSRL_Assignment" : {
+        "request" : {
+          "$ref" : "SRL_Assignment"
+        },
+        "response" : {
+          "$ref" : "SRL_Assignment"
+        }
+      },
+      "SRL_AssignmentEndpoint.removeSRL_Assignment" : {
+        "response" : {
+          "$ref" : "SRL_Assignment"
+        }
+      },
+      "SRL_UserEndpoint.getSRL_User" : {
+        "response" : {
+          "$ref" : "SRL_User"
+        }
+      },
+      "SRL_UserEndpoint.removeSRL_User" : {
+        "response" : {
+          "$ref" : "SRL_User"
+        }
+      },
+      "SRL_UserEndpoint.listUserCourses" : {
+        "response" : {
+          "$ref" : "SRL_CourseCollection"
+        }
+      },
+      "SRL_UserEndpoint.listSRL_User" : {
+        "response" : {
+          "$ref" : "CollectionResponse_SRL_User"
+        }
+      },
+      "SRL_UserEndpoint.insertSRL_User" : {
+        "request" : {
+          "$ref" : "SRL_User"
+        },
+        "response" : {
+          "$ref" : "SRL_User"
+        }
+      },
+      "SRL_UserEndpoint.insertSubmission" : {
+        "request" : {
+          "$ref" : "SRL_Submission"
+        },
+        "response" : {
+          "$ref" : "SRL_Submission"
+        }
+      },
+      "SRL_UserEndpoint.insertCourse" : {
+        "request" : {
+          "$ref" : "SRL_Course"
+        },
+        "response" : {
+          "$ref" : "SRL_Course"
+        }
+      },
+      "SRL_UserEndpoint.updateSRL_User" : {
+        "request" : {
+          "$ref" : "SRL_User"
+        },
+        "response" : {
+          "$ref" : "SRL_User"
+        }
+      },
+      "SRL_QuestionEndpoint.listSRL_Question" : {
+        "response" : {
+          "$ref" : "SRL_QuestionCollection"
+        }
+      },
+      "SRL_QuestionEndpoint.insertSRL_Question" : {
+        "request" : {
+          "$ref" : "SRL_Question"
+        },
+        "response" : {
+          "$ref" : "SRL_Question"
+        }
+      },
+      "SRL_QuestionEndpoint.removeSRL_Question" : {
+        "response" : {
+          "$ref" : "SRL_Question"
+        }
+      },
+      "SRL_QuestionEndpoint.getSRL_Question" : {
+        "response" : {
+          "$ref" : "SRL_Question"
+        }
+      },
+      "SRL_QuestionEndpoint.updateSRL_Question" : {
+        "request" : {
+          "$ref" : "SRL_Question"
+        },
+        "response" : {
+          "$ref" : "SRL_Question"
+        }
+      }
+    }
+  }
+}
